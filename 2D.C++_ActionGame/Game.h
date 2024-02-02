@@ -3,34 +3,42 @@
 //#include <cstdlib>
 #include "SDL.h"
 #include "GameCommon.h"
-
-//ウィンドウ設定
-#define WIN_NAME "C++ Action"
-#define WIN_TOP_X 100
-#define WIN_TOP_Y 50
+#include INPUT
+#include RENDER
+#include "Player.h"
 
 /// <summary>
 /// <para>Game</para>
 /// <para>ゲームの管理クラス</para>
 /// </summary>
-class Game {
+class Game 
+{
 public:
 	Game();
-	//ゲームを初期化する
+	// ゲームを初期化する
 	GameStatus Initialize();
-	//ゲームループ
-	void RunGame();
-	//ゲームを終了する
+	// ゲームループ
+	GameStatus RunGame();
+	// ゲームを終了する
 	void Shutdown();
+	// ゲームビューを渡す
+	GameView* GetGameView();
 
 private:
-	//SDLが作るウィンドウ
-	SDL_Window* mWindow;
-	//2D描画のためのレンダリング
-	SDL_Renderer* mRenderer;
+	// ゲームビュー
+	GameView* gameView;
+	// 入力管理マネージャー
+	Input* input;
+	// プレイヤー
+	Player* player;
 	// Number of ticks since start of game
 	Uint32 mTicksCount;
-	//ゲームの続行を支持する
-	bool mIsRunning;
+
+	// ゲームを描画します
+	bool DrowGameView();
+	// ゲームを再生します
+	bool PlayGame(float deltaTime);
+	// フレーム間隔時間を取得
+	float DeltaTime();
 
 };

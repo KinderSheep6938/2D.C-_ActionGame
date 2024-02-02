@@ -1,4 +1,7 @@
 #include "Game.h"
+#include RENDER
+#include INPUT
+#include "Player.h"
 
 /// <summary>
 /// <para>Game</para>
@@ -6,10 +9,10 @@
 /// </summary>
 Game::Game()
 {
-	mWindow = nullptr;
-	mRenderer = nullptr;
-	mTicksCount = 0;
-	mIsRunning = true;
+	gameView = new GameView();
+	input = new Input();
+	player = new Player(gameView);
+	mTicksCount = SDL_GetTicks();
 }
 
 /// <summary>
@@ -17,62 +20,96 @@ Game::Game()
 /// <para>ゲームの初期化処理</para>
 /// </summary>
 /// <returns>処理成功判定</returns>
-GameStatus Game::Initialize() {
-	// SDL初期化
-	int sdlResult = SDL_Init(SDL_INIT_VIDEO);
-	// 初期化に失敗した
-	if (sdlResult != 0) {
-		SDL_Log("SDLを初期化できません : %s", SDL_GetError());
-		return Stop;
-	}
-
-	// SDLウィンドウを作成
-	mWindow = SDL_CreateWindow(
-		WIN_NAME, // ウィンドウのタイトル
-		WIN_TOP_X, // ウィンドウ左上隅のx座標
-		WIN_TOP_Y, // ウィンドウ左上隅のy座標
-		WIN_W, // ウィンドウの幅(width)
-		WIN_H, // ウィンドウの高さ(height)
-		0 // フラグ(設定しない時は0)
-	);
-
-	// 生成に失敗した
-	if (!mWindow) {
-		SDL_Log("ウィンドウの作成に失敗しました : %s", SDL_GetError());
-		return Stop;
-	}
-
-	// SDLレンダラーを作成
-	mRenderer = SDL_CreateRenderer(
-		mWindow,
-		-1,
-		SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
-	);
-
-	return Play;
+GameStatus Game::Initialize() 
+{
+	// ゲームビュー初期化
+	GameStatus init = gameView->Initialize();
+	
+	return init;
 }
 
 /// <summary>
 /// <para>RunGame</para>
 /// <para>ゲームのプレイ処理</para>
 /// </summary>
-void Game::RunGame() {
-	SDL_SetRenderDrawColor(mRenderer, 0xdf, 0xff, 0xdf, SDL_ALPHA_OPAQUE);
-	SDL_RenderClear(mRenderer);
-	/* 線の描画 */
-	SDL_SetRenderDrawColor(mRenderer, 0xff, 0, 0, SDL_ALPHA_OPAQUE);
-	SDL_RenderDrawLine(mRenderer, 0, 0, 319, 239);
-	SDL_RenderPresent(mRenderer);
+GameStatus Game::RunGame() 
+{
+	//入力受付
+	input->SetInputByPlayer();
+
+	//終了キー
+	if (input->GetDebug()) {
+		return GameStatus::Stop;
+	}
+
+	//描画処理
+	if (!DrowGameView()) {
+		return GameStatus::Stop;
+	}
+
+	float deltaTime = DeltaTime();
+	//ゲーム処理
+	if (!PlayGame(deltaTime)) {
+		return GameStatus::Stop;
+	}
+
+
+	return GameStatus::Play;
 }
+
+/// <summary>
+/// <para>SetView</para>
+/// <para>ゲームを描画します</para>
+/// </summary>
+/// <returns></returns>
+bool Game::DrowGameView() 
+{
+	//スクリーンクリア
+	if (!gameView->Clear()) {
+		return false;
+	}
+	//プレイヤー描画
+	if (!player->View()) {
+		return false;
+	}
+
+	return true;
+}
+
+bool Game::PlayGame(float deltaTime) 
+{
+	//プレイヤー移動
+	player->Move(input->GetInput(), deltaTime);
+
+	return true;
+}
+
+float Game::DeltaTime() 
+{
+	float deltaTime = (SDL_GetTicks() - mTicksCount) / 1000.0f;
+	//時刻を更新
+	mTicksCount = SDL_GetTicks();
+
+	return deltaTime;
+}
+
 
 /// <summary>
 /// <para>Shutdown</para>
 /// <para>ゲームの終了処理</para>
 /// </summary>
-void Game::Shutdown() {
+void Game::Shutdown() 
+{
+	// ゲームビュー削除
+	gameView->Shutdown();
+}
 
-	if (mRenderer) SDL_DestroyRenderer(mRenderer);
-	if (mWindow) SDL_DestroyWindow(mWindow);
-
-	SDL_Quit();
+/// <summary>
+/// <para>GetGameView</para>
+/// <para>ゲームビューを取得します</para>
+/// </summary>
+/// <returns>ゲームビューのポインタ</returns>
+GameView* Game::GetGameView() 
+{
+	return gameView;
 }

@@ -1,29 +1,18 @@
 #include "Game.h"
-#include "InputManager.h"
 
-int main(int argc, char** argv) {
-	//ゲームクラス
+int main(int argc, char** argv) 
+{
+	//ゲーム管理クラス
 	Game game;
-	//入力
-	Input input;
 
-	GameStatus nowGame = Start;
+	GameStatus nowGame = GameStatus::Start;
 	//ゲーム初期化
 	nowGame = game.Initialize();
 
 	//ゲームをプレイできる
-	while (nowGame == Play) {
-		//プレイヤー入力反映
-		input.SetInputByPlayer();
-		
-		//終了キー
-		if (input.GetDebug()) {
-			nowGame = Stop;
-			break;
-		}
-
+	while (nowGame == GameStatus::Play) {
 		//ゲームをプレイ
-		game.RunGame();
+		nowGame = game.RunGame();
 	}
 
 	//ゲーム終了
