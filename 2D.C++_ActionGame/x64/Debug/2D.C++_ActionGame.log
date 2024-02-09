@@ -1,0 +1,29 @@
+﻿  Block.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Camera.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  ColliderManager.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Game.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Game.h(4,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  GameRenderer.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Main.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Game.h(4,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  InputManager.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\InputManager.cpp(1,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Map.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Player.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Transform.cpp
+  Vector2.cpp
+  コードを生成中...
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Vector2.cpp(22): warning C4172: ローカル変数またはテンポラリのアドレスを返します: calc
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Vector2.cpp(18): warning C4172: ローカル変数またはテンポラリのアドレスを返します: calc
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Vector2.cpp(26): warning C4172: ローカル変数またはテンポラリのアドレスを返します: calc
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Vector2.cpp(30): warning C4172: ローカル変数またはテンポラリのアドレスを返します: calc
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Vector2.cpp(42): warning C4172: ローカル変数またはテンポラリのアドレスを返します: calc
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Vector2.cpp(46): warning C4172: ローカル変数またはテンポラリのアドレスを返します: calc
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Vector2.cpp(38): warning C4172: ローカル変数またはテンポラリのアドレスを返します: calc
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Vector2.cpp(34): warning C4172: ローカル変数またはテンポラリのアドレスを返します: calc

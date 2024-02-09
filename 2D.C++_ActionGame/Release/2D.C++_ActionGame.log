@@ -1,0 +1,26 @@
+﻿  Block.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Camera.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  ColliderManager.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Game.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Game.h(4,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  GameRenderer.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Math.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Math.h(16,2): warning C4091: 'static ': 変数が何も宣言されていないときは、'Math' の左辺を無視します。
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Math.cpp(27,12): warning C4244: '初期化中': 'time_t' から 'float' への変換です。データが失われる可能性があります。
+  Physic.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Physic.cpp(18,47): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Physic.cpp(58,32): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  Main.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Game.h(4,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  InputManager.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\InputManager.cpp(1,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Map.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Player.cpp
+C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRender.h(2,10): fatal error C1083: include ファイルを開けません。'SDL.h':No such file or directory
+  Transform.cpp
+  Vector2.cpp

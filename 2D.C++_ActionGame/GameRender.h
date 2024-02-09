@@ -1,7 +1,10 @@
 #pragma once
 #include "SDL.h"
+#include "SDL_image.h"
 #include "GameCommon.h"
 
+//フォントパス
+#define FONT_PATH "PixelMplus12-Regular.ttf"
 
 //カラーコード
 #define BLACK_C 0,0,0
@@ -15,7 +18,7 @@
 
 /// <summary>
 /// <para>GameView</para>
-/// <para>ゲームの管理クラス</para>
+/// <para>ゲームビューの管理クラス</para>
 /// </summary>
 class GameView 
 {
@@ -27,13 +30,15 @@ public:
 	void Shutdown();
 
 	// 画面クリア
-	bool Clear();
+	bool Clear(float height);
 	// 画面更新
 	void Update();
 	// 描画色設定
 	void SetDrowColor(int color);
 	// 四角描画
-	void DrowSquare(Vector2* pos, Vector2* size, float gameScale);
+	void DrowSquare(Vector2* topEdge, float width, float height);
+	// 文字表示
+	void DrowText(int val);
 
 	// ゲームウィンドウを取得
 	SDL_Window* GetWindow();
@@ -45,6 +50,10 @@ private:
 	SDL_Window* mWindow;
 	// 2D描画のためのレンダリング
 	SDL_Renderer* mRenderer;
+	// 画像用サーフェス
+	SDL_Surface* image;
+	// 画像出力用テクスチャ
+	SDL_Texture* imageTexture;
 	// 現在設定されている描画色
 	int colorId;
 

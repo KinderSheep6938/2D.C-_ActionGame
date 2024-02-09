@@ -1,23 +1,3 @@
-﻿  Game.cpp
-  GameRenderer.cpp
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(190,51): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(190,44): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(190,38): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(190,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(193,20): warning C4838: 'float' から 'int' への変換には縮小変換が必要です
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(193,20): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(193,26): warning C4838: 'float' から 'int' への変換には縮小変換が必要です
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(193,26): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(193,32): warning C4838: 'float' から 'int' への変換には縮小変換が必要です
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(193,32): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(193,39): warning C4838: 'float' から 'int' への変換には縮小変換が必要です
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\GameRenderer.cpp(193,39): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  InputManager.cpp
-  Main.cpp
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Main.cpp(3,27): warning C4100: 'argv': 引数は関数の本体部で 1 度も参照されません。
-C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\2D.C++_ActionGame\Main.cpp(3,14): warning C4100: 'argc': 引数は関数の本体部で 1 度も参照されません。
-  Player.cpp
-  コードを生成中...
-  2D.C++_ActionGame.vcxproj -> C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\Debug\2D.C++_ActionGame.exe
-  C:\Users\s20227039\Documents\C++Game\SDL2-2.28.5\lib\x86\SDL2.dll
+﻿  2D.C++_ActionGame.vcxproj -> C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\Debug\2D.C++_ActionGame.exe
+  C:\Users\s20227039\Documents\C++Game\2D.C++_ActionGame\SDL2-2.28.5\lib\x86\SDL2.dll
   1 個のファイルをコピーしました

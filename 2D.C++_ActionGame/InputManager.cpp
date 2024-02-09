@@ -1,10 +1,6 @@
 #include "SDL.h"
 #include "GameCommon.h"
-#include INPUT
-
-//移動量
-#define MOVE_P 1000
-#define MOVE_M -1000
+#include INPUT_H
 
 /// <summary>
 /// <para>Input</para>
@@ -23,28 +19,19 @@ void Input::SetInputByPlayer()
     inputVal.y = 0;
     // イベント取得
     SDL_Event sdlEvent;
-    // 取得できている かつ ボタンが押された
-    if (SDL_PollEvent(&sdlEvent) && sdlEvent.type == SDL_KEYDOWN) {
-        // 右ボタンを押した
-        if (sdlEvent.key.keysym.sym == SDLK_RIGHT) {
-            inputVal.x += MOVE_P;
-        }
-        // 左ボタンを押した
-        if (sdlEvent.key.keysym.sym == SDLK_LEFT) {
-            inputVal.x += MOVE_M;
-        }
-        // 上ボタンを押した
-        if (sdlEvent.key.keysym.sym == SDLK_UP) {
-            inputVal.y += MOVE_M;
-        }
-        // 下ボタンを押した
-        if (sdlEvent.key.keysym.sym == SDLK_DOWN) {
-            inputVal.y += MOVE_P;
-        }
-        // 終了ボタンを押した
-        if (sdlEvent.key.keysym.sym == SDLK_ESCAPE) {
-            shutdown = true;
-        }
+    SDL_PollEvent(&sdlEvent);
+    const Uint8* state = SDL_GetKeyboardState(NULL);
+    // 上ボタンを押した
+    if (state[SDL_SCANCODE_UP]) {
+        inputVal.y += BIG_JUMP;
+    }
+    // 下ボタンを押した
+    if (state[SDL_SCANCODE_DOWN]) {
+        inputVal.y += SMALL_JUMP;
+    }
+    // 終了ボタンを押した
+    if (state[SDL_SCANCODE_ESCAPE]) {
+        shutdown = true;
     }
 }
 

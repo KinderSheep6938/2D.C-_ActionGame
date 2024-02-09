@@ -1,5 +1,11 @@
 #include "GameCommon.h"
-#include RENDER
+#include RENDER_H
+#include <filesystem>
+#include <iostream>
+
+#define SKY_POS Vector2(0,0)
+#define GROUND_POS Vector2(0, WIN_H_CENTOR + WIN_H_CENTOR / HALF)
+#define SCROLL_SPEED 3
 
 /// <summary>
 /// <para>GameView</para>
@@ -7,8 +13,11 @@
 /// </summary>
 GameView::GameView()
 {
+
 	mWindow = nullptr;
 	mRenderer = nullptr;
+	image = nullptr;
+	imageTexture = nullptr;
 	colorId = WHITE;
 }
 
@@ -36,6 +45,7 @@ GameStatus GameView::Initialize()
 		WIN_H, // ウィンドウの高さ(height)
 		0 // フラグ(設定しない時は0)
 	);
+
 
 	// 生成に失敗した
 	if (!mWindow) {
@@ -88,7 +98,7 @@ SDL_Renderer* GameView::GetRenderer()
 /// <para>画面を所定の画面に初期化します</para>
 /// </summary>
 /// <returns>成功可否</returns>
-bool GameView::Clear() 
+bool GameView::Clear(float height) 
 {
 	//NULLチェック
 	if (!mRenderer) 
@@ -96,11 +106,18 @@ bool GameView::Clear()
 		return false;
 	}
 
-	SetDrowColor(BLACK);
+	SetDrowColor(CYAN);
 	SDL_RenderClear(mRenderer);
 	/* 線の描画 */
+
+	Vector2 drowPos = SKY_POS;
 	SetDrowColor(BLUE);
-	SDL_RenderDrawLine(mRenderer, 0, 0, WIN_W - 1, WIN_H - 1);
+	DrowSquare(&drowPos, WIN_W, (WIN_H_CENTOR / HALF) - height / SCROLL_SPEED / HALF);
+	SetDrowColor(BLACK);
+	DrowSquare(&drowPos, WIN_W, -height / SCROLL_SPEED / SCROLL_SPEED);
+	drowPos = *GROUND_POS.Add(0, -height / SCROLL_SPEED);
+	SetDrowColor(GREEN);
+	DrowSquare(&drowPos, WIN_W, WIN_H);
 
 	return true;
 }
@@ -173,28 +190,25 @@ void GameView::SetDrowColor(int color)
 /// </summary>
 /// <param name="pos">座標</param>
 /// <param name="size">大きさ</param>
-void GameView::DrowSquare(Vector2* pos, Vector2* size, float gameScale)
+void GameView::DrowSquare(Vector2* topEdge,float width,float height)
 {
-	// 四角形の縦横
-	float width = (size->x * gameScale);
-	float height = (size->y * gameScale);
-	// ウィンドウの原点に近い点
-	float shaX = pos->x - width / HALF;
-	float shaY = pos->y - height / HALF;
-	// ウィンドウの原点に遠い点
-	float deepX = pos->x + width / HALF;
-	float deepY = pos->y + height / HALF;
+	// 描画情報設定
+	SDL_Rect rect = SDL_Rect();
+	rect.x = topEdge->x;
+	rect.y = topEdge->y;
+	rect.w = width;
+	rect.h = height;
 
-	// 画面内に補正
-
-	SDL_RenderDrawLine(mRenderer, shaX, shaY, deepX, deepY);
-
-	//描画
-	SDL_Rect rect = { shaX, shaY, width, height };
+	// 描画
 	SDL_RenderFillRect(mRenderer, &rect);
+}
 
-	//画面更新
-	SDL_RenderPresent(mRenderer);
+void GameView::DrowText(int val) {
+
+	
+	// 画像の読み込み
+	
+	return;
 }
 
 /// <summary>
